@@ -1,7 +1,11 @@
 package ar.com.ada.api.stephix.entities;
 
+import org.bson.types.ObjectId;
 
 public class Contenido {
+
+    //Id del documento dentro de la coleccion
+    private ObjectId _id;
     
     private String nombre;
 
@@ -66,4 +70,12 @@ public class Contenido {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+	public ObjectId get_id() {
+		return _id;
+	}
+
+	public void set_id(ObjectId _id) {
+		this._id = _id;
+	}
 }

@@ -2,6 +2,9 @@ package ar.com.ada.api.stephix.entities;
 
 import java.util.*;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="Series")
 public class Serie extends Contenido {
 
     private List<Temporada> temporadas = new ArrayList<>();
