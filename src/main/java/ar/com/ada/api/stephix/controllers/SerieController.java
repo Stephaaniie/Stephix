@@ -22,7 +22,7 @@ public class SerieController {
         GenericResponse response = new GenericResponse();
         response.isOK = true;
         response.message =  "Serie creada con exito!";
-        response.id= serieInfo.get_id().toHexString();
+        response.id= serieInfo.get_id();
 
         return  ResponseEntity.ok(response);
     }
