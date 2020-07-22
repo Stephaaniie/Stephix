@@ -1,35 +1,49 @@
 package ar.com.ada.api.stephix.controllers;
 import java.util.*;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ar.com.ada.api.stephix.models.GenericResponse;
+import org.bson.types.ObjectId;
 
 import ar.com.ada.api.stephix.entities.*;
 import ar.com.ada.api.stephix.services.*;
 
 @RestController
+@RequestMapping("/api/series")
 public class SerieController {
-    /*
-    @Autowired
-    SerieService serieService;
 
-    @PostMapping("/api/series")
-    public ResponseEntity<GenericResponse> crearSerie(@RequestBody Serie serieInfo){
-        
-        serieService.grabar(serieInfo);
-        GenericResponse response = new GenericResponse();
-        response.isOK = true;
-        response.message =  "Serie creada con exito!";
-        response.id= serieInfo.get_id();
+    private final ISerieService serieService;
 
-        return  ResponseEntity.ok(response);
+    public SerieController(ISerieService as) {
+        this.serieService = as;
     }
-    
-    @GetMapping("/api/series")
-    public ResponseEntity<List<Serie>> listarSeries(){
 
-        return ResponseEntity.ok(serieService.listarSeries());
-    }*/
+    @GetMapping
+    public List<Serie> findAll() {
+        return serieService.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Serie findById(@PathVariable("id") String id) {
+        return serieService.findById(new ObjectId(id));
+    }
+
+    @PostMapping
+    public ResponseEntity<Serie> save(@RequestBody  Serie serie) {
+        return new ResponseEntity<>(serieService.save(serie), HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public Serie update(@PathVariable("id") String id, @RequestBody Serie serie) {
+        serie.set_id(new ObjectId(id));
+
+        return serieService.save(serie);
+    }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") String id) {
+        serieService.deleteById(id);
+        return "OK";
+    }
 }
