@@ -1,5 +1,8 @@
 package ar.com.ada.api.stephix.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.bson.types.ObjectId;
 
 public class Contenido {
@@ -18,6 +21,8 @@ public class Contenido {
     private int anio;
 
     private String descripcion;
+
+    private List<Actor> actores = new ArrayList<>();
 
     public void reproducir () {
         
@@ -77,5 +82,13 @@ public class Contenido {
 
 	public void set_id(ObjectId _id) {
 		this._id = _id;
+	}
+
+	public List<Actor> getActores() {
+		return actores;
+	}
+
+	public void setActores(List<Actor> actores) {
+		this.actores = actores;
 	}
 }

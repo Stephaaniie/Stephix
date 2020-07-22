@@ -5,7 +5,26 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="Elenco")
 public class Actor {
+
     private ObjectId _id;
+
+	public String descripcion;
+
+    public String nombre;
+
+    public int edad;
+
+    public String getDescripcion(){
+        return this.descripcion;
+    }
+
+    public String getNombre(){
+        return this.nombre;
+    }
+
+    public int getEdad(){
+        return this.edad;
+    }
 
 	public String get_id() {
 		return this._id.toHexString();
