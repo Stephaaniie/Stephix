@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import ar.com.ada.api.stephix.entities.Usuario;
 import ar.com.ada.api.stephix.security.Crypto;
+
 import kong.unirest.Unirest;
 import kong.unirest.UnirestException;
 
@@ -70,7 +71,7 @@ public class EmailService {
                 "Tu contraseña es: " + Crypto.decrypt(usuario.getPassword(), usuario.getEmail())+ "\n ¡Saludos!");
                 break;
             case LOGIARSE_ERROR:
-                this.SendEmail(usuario.getEmail(), "Eror ocurrio un error al intentar logearse", "Estimad@: "+ usuario.getPersona().getNombre() + "\n¡Saludos!");
+                this.SendEmail(usuario.getEmail(), "Eror ocurrio un error al intentar logearse", "Estimad@: "+ usuario.getNombre() + "\n¡Saludos!");
                 break;
             default:
                 break;

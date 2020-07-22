@@ -20,7 +20,8 @@ public class Usuario {
 
     private Date fechaLogin;
 
-
+	private String Nombre;
+	
 	public void cargarUsuario(String email,String password) {
         this.setUsername(email);
         
@@ -30,8 +31,8 @@ public class Usuario {
     }
 
 
-	public ObjectId get_id() {
-		return _id;
+	public String get_id() {
+		return this._id.toHexString();
 	}
 
 
@@ -77,5 +78,15 @@ public class Usuario {
 
 	public void setFechaLogin(Date fechaLogin) {
 		this.fechaLogin = fechaLogin;
+	}
+
+
+	public String getNombre() {
+		return Nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		Nombre = nombre;
 	}
 }

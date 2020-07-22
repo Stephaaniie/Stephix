@@ -3,11 +3,14 @@ package ar.com.ada.api.stephix.services.implementations;
 import java.util.List;
 
 import org.bson.types.ObjectId;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.stereotype.Service;
 
 import ar.com.ada.api.stephix.entities.Usuario;
 import ar.com.ada.api.stephix.exceptions.ResourceNotFoundException;
+import ar.com.ada.api.stephix.models.LoginResponse;
 import ar.com.ada.api.stephix.repos.UsuarioRepository;
+import ar.com.ada.api.stephix.security.Crypto;
 import ar.com.ada.api.stephix.services.IUsuarioServer;
 
 @Service
@@ -72,6 +75,27 @@ public class UsuarioServer implements IUsuarioServer{
 
 	public Usuario findByName(String username) {
 		return usuarioRepository.findByName();
+	}
+
+	@Override
+	public void login(String username, String password) {
+		Usuario u = this.findByName(username);
+
+    	if (u == null || !u.getPassword().equals(Crypto.encrypt(password, u.getUsername()))) {
+    		//emailService.alertaPorRecibirPor(u,LOGIARSE_ERROR);
+			throw new BadCredentialsException("Usuario o contraseña invalida");
+    	}
+    	//emailService.alertaPorRecibirPor(u,LOGIARSE);
+	}
+
+	@Override
+	public LoginResponse loginResponse(Usuario u, String token, String username) {
+		LoginResponse r = new LoginResponse(); 
+    	r.id = u.get_id(); 
+    	r.username = username; 
+    	r.email = u.getEmail(); 
+    	r.token = token; 
+	  	return r;
 	}
     
 }
