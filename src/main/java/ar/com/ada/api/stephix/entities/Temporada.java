@@ -2,10 +2,18 @@ package ar.com.ada.api.stephix.entities;
 
 import java.util.*;
 
+import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="Temporadas")
 public class Temporada {
     
+    private ObjectId _id;
+
     private int numero;
+
     private int anio;
+
     private List<Episodio> episodios = new ArrayList<>();
  
     public int getNumero(){
@@ -44,6 +52,14 @@ public class Temporada {
     public Episodio getEpisodioAtPosicion (int pos) {
         return this.episodios.get(pos);
     }
+
+	public String get_id() {
+		return this._id.toHexString();
+	}
+
+	public void set_id(ObjectId _id) {
+		this._id = _id;
+	}
      
  
 }

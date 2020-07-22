@@ -1,14 +1,20 @@
 package ar.com.ada.api.stephix.entities;
 
+import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection="Episodios")
 public class Episodio {
 
-    private int numero;
-    private String nombre;
-    private int duracionEnMinutos;
-    private String descripcion;
+    private ObjectId _id;
 
-    // Creando getters y setters
+    private int numero;
+
+    private String nombre;
+
+    private int duracionEnMinutos;
+
+    private String descripcion;
 
     public int getNumero() {
         return this.numero;
@@ -45,5 +51,13 @@ public class Episodio {
     public void reproducir() {
         System.out.println("Reproduciendo episodio " + this.numero + " " + this.nombre);
     }
+
+	public String get_id() {
+		return this._id.toHexString();
+	}
+
+	public void set_id(ObjectId _id) {
+		this._id = _id;
+	}
 
 }
