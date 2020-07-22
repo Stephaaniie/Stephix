@@ -22,4 +22,14 @@ public interface SerieRepository extends MongoRepository<Serie,ObjectId>{
     List<Serie> findByGenero(String genero);
 
     List<Serie> findByAnio(int anio);
+
+    List<Actor>findByElenco();
+
+	boolean existsById(int id);
+
+	void deleteById(int id);
+
+	boolean existsById(String id);
+
+	void deleteById(String id);
 }

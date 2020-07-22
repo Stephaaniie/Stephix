@@ -11,7 +11,7 @@ import ar.com.ada.api.stephix.services.*;
 
 @RestController
 public class SerieController {
-    
+    /*
     @Autowired
     SerieService serieService;
 
@@ -31,5 +31,5 @@ public class SerieController {
     public ResponseEntity<List<Serie>> listarSeries(){
 
         return ResponseEntity.ok(serieService.listarSeries());
-    }
+    }*/
 }

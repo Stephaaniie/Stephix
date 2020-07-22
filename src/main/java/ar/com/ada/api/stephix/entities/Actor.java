@@ -6,8 +6,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection="Elenco")
 public class Actor {
 
-    private ObjectId _id;
-
+    public ObjectId _id;
+    
 	public String descripcion;
 
     public String nombre;

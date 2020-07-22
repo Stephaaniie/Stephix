@@ -76,10 +76,6 @@ public class Contenido {
         this.descripcion = descripcion;
     }
 
-	public String get_id() {
-		return this._id.toHexString();
-	}
-
 	public void set_id(ObjectId _id) {
 		this._id = _id;
 	}
@@ -90,5 +86,9 @@ public class Contenido {
 
 	public void setActores(List<Actor> actores) {
 		this.actores = actores;
+	}
+
+	public ObjectId get_id() {
+		return _id;
 	}
 }

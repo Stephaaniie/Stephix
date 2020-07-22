@@ -2,7 +2,6 @@ package ar.com.ada.api.stephix.entities;
 
 import java.util.*;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="Series")

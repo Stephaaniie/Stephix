@@ -18,4 +18,12 @@ public interface TemporadaRepository extends MongoRepository<Temporada,ObjectId>
     List<Episodio> findByEpisodios();
 
     Temporada findByAnio(int anio);
+
+	void deleteById(String id);
+
+	boolean existsById(String id);
+
+	void deleteById(int id);
+
+	boolean existsById(int id);
 }
