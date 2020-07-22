@@ -69,4 +69,3 @@ public class SerieService implements ISerieService{
         serieRepository.deleteById(id);	
 	}
 }
-    

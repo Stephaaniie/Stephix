@@ -27,7 +27,15 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -39,7 +47,13 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-	</dependencies>
+	
+   <dependency>
+     <groupId>com.konghq</groupId>
+     <artifactId>unirest-java</artifactId>
+     <version>3.8.06</version>
+   </dependency>
+ </dependencies>
 
 	<build>
 		<plugins>
