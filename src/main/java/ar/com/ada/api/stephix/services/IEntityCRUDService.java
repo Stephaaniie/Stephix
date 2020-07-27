@@ -15,10 +15,6 @@ public interface IEntityCRUDService <E> {
 
     void delete(E entity);
 
-    void deleteById(int id);
-
-    void deleteById(String id);
-
     void deleteById(ObjectId id);
 
     Long count();

@@ -10,18 +10,16 @@ import ar.com.ada.api.stephix.models.*;
 import ar.com.ada.api.stephix.models.request.LoginRequest;
 import ar.com.ada.api.stephix.security.jwt.JWTTokenUtil;
 import ar.com.ada.api.stephix.services.*;
+import ar.com.ada.api.stephix.services.implementations.UsuarioServer;
 
 import org.springframework.http.HttpStatus;
 
 @RestController
-@RequestMapping("/api/usuarios")
+@RequestMapping("/api/auth")
 public class UsuarioController {
 
-    private final IUsuarioServer iUsuarioServer;
-
-    public UsuarioController(IUsuarioServer as) {
-        this.iUsuarioServer = as;
-    }
+    @Autowired
+    UsuarioServer iUsuarioServer;
 
     @Autowired
     private JWTTokenUtil jwtTokenUtil;
@@ -31,6 +29,7 @@ public class UsuarioController {
 
     @PostMapping("/register")
     public ResponseEntity<Usuario> postRegisterUser(@RequestBody Usuario usuario) {
+        usuario.cargarUsuario(usuario.getUsername(), usuario.getPassword());
         return new ResponseEntity<>(iUsuarioServer.save(usuario), HttpStatus.CREATED);
     }
 

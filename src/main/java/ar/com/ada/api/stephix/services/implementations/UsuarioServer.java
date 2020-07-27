@@ -45,22 +45,6 @@ public class UsuarioServer implements IUsuarioServer{
 	}
 
 	@Override
-	public void deleteById(int id) {
-		if (!usuarioRepository.existsById(id)){
-            throw new ResourceNotFoundException("model with id " + id + " not found");
-        }
-        usuarioRepository.deleteById(id);	
-	}
-
-	@Override
-	public void deleteById(String id) {
-        if (!usuarioRepository.existsById(id)){
-            throw new ResourceNotFoundException("model with id " + id + " not found");
-        }
-        usuarioRepository.deleteById(id);	
-	}
-
-	@Override
 	public void deleteById(ObjectId id) {
 		if (!usuarioRepository.existsById(id)){
             throw new ResourceNotFoundException("model with id " + id + " not found");
@@ -74,13 +58,13 @@ public class UsuarioServer implements IUsuarioServer{
 	}
 
 	public Usuario findByName(String username) {
-		return usuarioRepository.findByName();
+		return usuarioRepository.findByUsername(username);
 	}
 
 	@Override
 	public void login(String username, String password) {
 		Usuario u = this.findByName(username);
-
+		u.cargarUsuario(username, password);
     	if (u == null || !u.getPassword().equals(Crypto.encrypt(password, u.getUsername()))) {
     		//emailService.alertaPorRecibirPor(u,LOGIARSE_ERROR);
 			throw new BadCredentialsException("Usuario o contraseña invalida");
@@ -91,9 +75,8 @@ public class UsuarioServer implements IUsuarioServer{
 	@Override
 	public LoginResponse loginResponse(Usuario u, String token, String username) {
 		LoginResponse r = new LoginResponse(); 
-    	r.id = u.get_id(); 
-    	r.username = username; 
-    	r.email = u.getEmail(); 
+    	r.id = u.get_id().toHexString(); 
+    	r.username = u.getUsername(); 
     	r.token = token; 
 	  	return r;
 	}

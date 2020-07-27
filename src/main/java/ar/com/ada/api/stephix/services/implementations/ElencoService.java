@@ -36,14 +36,6 @@ public class ElencoService implements IElencoService{
 	}
 
 	@Override
-	public void deleteById(int id) {
-		if (!actorRepository.existsById(id)){
-            throw new ResourceNotFoundException("model with id " + id + " not found");
-        }
-        actorRepository.deleteById(id);
-	}
-
-	@Override
 	public void deleteById(ObjectId id) {
 		if (!actorRepository.existsById(id)){
             throw new ResourceNotFoundException("model with id " + id + " not found");
@@ -54,14 +46,6 @@ public class ElencoService implements IElencoService{
 	@Override
 	public Long count() {
 		return actorRepository.count();
-	}
-
-	@Override
-	public void deleteById(String id) {
-		if (!actorRepository.existsById(id)){
-            throw new ResourceNotFoundException("model with id " + id + " not found");
-        }
-        actorRepository.deleteById(id);
 	}
 
 	@Override

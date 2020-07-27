@@ -16,7 +16,7 @@ public interface PeliculaRepository extends MongoRepository<Pelicula,ObjectId>{
 
     Pelicula findByNombre(String nombre);
 
-    Pelicula findByClasificacionSerie(String clasificacion);
+    Pelicula findByClasificacion(String clasificacion);
 
     List<Pelicula>findByCalificacion(double calificacion);
 
@@ -24,13 +24,4 @@ public interface PeliculaRepository extends MongoRepository<Pelicula,ObjectId>{
 
     List<Pelicula>findByAnio(int anio);
 
-    List<Actor>findByElenco();
-
-	void deleteById(int id);
-
-	boolean existsById(String id);
-
-	boolean existsById(int id);
-
-	void deleteById(String id);
 }

@@ -41,22 +41,6 @@ public class PeliculaService implements IPeliculaService {
 	}
 
 	@Override
-	public void deleteById(int id) {
-		if (!peliculaRepository.existsById(id)){
-            throw new ResourceNotFoundException("model with id " + id + " not found");
-        }
-        peliculaRepository.deleteById(id);
-	}
-
-	@Override
-	public void deleteById(String id) {
-        if (!peliculaRepository.existsById(id)){
-            throw new ResourceNotFoundException("model with id " + id + " not found");
-        }
-        peliculaRepository.deleteById(id);		
-	}
-
-	@Override
 	public void deleteById(ObjectId id) {
 		if (!peliculaRepository.existsById(id)){
             throw new ResourceNotFoundException("model with id " + id + " not found");

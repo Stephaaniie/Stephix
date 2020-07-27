@@ -1,5 +1,6 @@
 package ar.com.ada.api.stephix.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,17 +10,14 @@ import java.util.List;
 import org.bson.types.ObjectId;
 
 import ar.com.ada.api.stephix.entities.*;
-import ar.com.ada.api.stephix.services.*;
+import ar.com.ada.api.stephix.services.implementations.TemporadaService;
 
 @RestController
 @RequestMapping("/api/temporadas")
 public class TemporadaController {
-
-    private final ITemporadaService temporadaService;
-
-    public TemporadaController(ITemporadaService as) {
-        this.temporadaService = as;
-    }
+    
+    @Autowired
+    TemporadaService temporadaService;
 
     @GetMapping
     public List<Temporada> findAll() {
@@ -45,7 +43,20 @@ public class TemporadaController {
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") String id) {
-        temporadaService.deleteById(id);
+        temporadaService.deleteById(new ObjectId(id));
         return "OK";
+    }
+
+    @GetMapping("/episodios")
+    public List<Episodio> findByEpisodio(@PathVariable("episodios") String episodios) {
+		return temporadaService.findByEpisodios();
+    }
+
+    //@GetMapping("/id/episodios/id")
+    //public Episodio fidbByEpisodio(@PathVariable())
+
+    @PostMapping("/id/episodios")
+    public ResponseEntity<Episodio> save(@RequestBody  Episodio episodio, String id) {
+        return new ResponseEntity<>(temporadaService.save(episodio,new ObjectId(id)), HttpStatus.CREATED);
     }
 }

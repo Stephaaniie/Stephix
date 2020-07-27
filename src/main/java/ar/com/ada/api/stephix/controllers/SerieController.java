@@ -1,23 +1,21 @@
 package ar.com.ada.api.stephix.controllers;
 import java.util.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.bson.types.ObjectId;
 
 import ar.com.ada.api.stephix.entities.*;
-import ar.com.ada.api.stephix.services.*;
+import ar.com.ada.api.stephix.services.implementations.SerieService;
 
 @RestController
 @RequestMapping("/api/series")
 public class SerieController {
 
-    private final ISerieService serieService;
-
-    public SerieController(ISerieService as) {
-        this.serieService = as;
-    }
+    @Autowired
+    SerieService serieService;
 
     @GetMapping
     public List<Serie> findAll() {
@@ -43,7 +41,7 @@ public class SerieController {
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") String id) {
-        serieService.deleteById(id);
+        serieService.deleteById(new ObjectId(id));
         return "OK";
     }
 }

@@ -52,20 +52,4 @@ public class SerieService implements ISerieService{
     public Long count() {
         return serieRepository.count();
     }
-
-	@Override
-	public void deleteById(int id) {
-        if (!serieRepository.existsById(id)){
-            throw new ResourceNotFoundException("model with id " + id + " not found");
-        }
-        serieRepository.deleteById(id);		
-	}
-
-	@Override
-	public void deleteById(String id) {
-        if (!serieRepository.existsById(id)){
-            throw new ResourceNotFoundException("model with id " + id + " not found");
-        }
-        serieRepository.deleteById(id);	
-	}
 }

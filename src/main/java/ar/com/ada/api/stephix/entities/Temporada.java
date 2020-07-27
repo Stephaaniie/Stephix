@@ -53,13 +53,15 @@ public class Temporada {
         return this.episodios.get(pos);
     }
 
-	public String get_id() {
-		return this._id.toHexString();
+	public ObjectId get_id() {
+		return _id;
 	}
 
 	public void set_id(ObjectId _id) {
 		this._id = _id;
 	}
-     
- 
+
+	public void setEpisodio(Episodio episodio) {
+        this.episodios.add(episodio);
+	}
 }

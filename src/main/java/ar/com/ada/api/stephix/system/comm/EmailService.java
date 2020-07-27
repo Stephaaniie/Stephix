@@ -1,23 +1,19 @@
 package ar.com.ada.api.stephix.system.comm;
 
-import java.net.http.HttpResponse;
-
-import com.fasterxml.jackson.databind.JsonNode;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import ar.com.ada.api.stephix.entities.Usuario;
 import ar.com.ada.api.stephix.security.Crypto;
 
-//import kong.unirest.HttpResponse;
-//import kong.unirest.JsonNode;
+import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
 import kong.unirest.Unirest;
 import kong.unirest.UnirestException;
 
 @Service
 public class EmailService {
-    /*
+    
     enum TipoEnvio {
         SMTP, API
     }
@@ -60,18 +56,18 @@ public class EmailService {
     public void alertaPorRecibirPor(Usuario usuario,String envio){
         switch (envio) {
             case BIENVENIDA:
-                this.SendEmail(usuario.getEmail(), "Bienvenida a Stephix ", "Estimad@: "+ usuario.getNombre() + "\n Te regalamos $500 por confiar en nosotros \n ¡Saludos!");
+                this.SendEmail(usuario.getUsername(), "Bienvenida a Stephix ", "Estimad@: "+ usuario.getNombre() + "\n Te regalamos $500 por confiar en nosotros \n ¡Saludos!");
                 break;
             case LOGIARSE:
-                this.SendEmail(usuario.getEmail(), "Te logeaste a Stephix", "Estimad@: "+ usuario.getNombre() + "\n Te damos la bienvenida a nuetro sistema tu usuario es:"+ usuario.getUsername()+
-                "Tu contraseña es: " + Crypto.decrypt(usuario.getPassword(), usuario.getEmail())+ "\n ¡Saludos!");
+                this.SendEmail(usuario.getUsername(), "Te logeaste a Stephix", "Estimad@: "+ usuario.getNombre() + "\n Te damos la bienvenida a nuetro sistema tu usuario es:"+ usuario.getUsername()+
+                "Tu contraseña es: " + Crypto.decrypt(usuario.getPassword(), usuario.getUsername())+ "\n ¡Saludos!");
                 break;
             case LOGIARSE_ERROR:
-                this.SendEmail(usuario.getEmail(), "Eror ocurrio un error al intentar logearse", "Estimad@: "+ usuario.getNombre() + "\n¡Saludos!");
+                this.SendEmail(usuario.getUsername(), "Eror ocurrio un error al intentar logearse", "Estimad@: "+ usuario.getNombre() + "\n¡Saludos!");
                 break;
             default:
                 break;
         }
-    }*/
+    }
 }
 

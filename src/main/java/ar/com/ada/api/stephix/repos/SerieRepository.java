@@ -15,21 +15,11 @@ public interface SerieRepository extends MongoRepository<Serie,ObjectId>{
 
     Serie findByNombre(String nombre);
 
-    Serie findByClasificacionSerie(String clasificacion);
+    Serie findByClasificacion(String clasificacion);
 
     List<Serie> findByCalificacion(double calificacion);
 
     List<Serie> findByGenero(String genero);
 
     List<Serie> findByAnio(int anio);
-
-    List<Actor>findByElenco();
-
-	boolean existsById(int id);
-
-	void deleteById(int id);
-
-	boolean existsById(String id);
-
-	void deleteById(String id);
 }

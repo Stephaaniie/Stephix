@@ -26,8 +26,8 @@ public class Actor {
         return this.edad;
     }
 
-	public String get_id() {
-		return this._id.toHexString();
+	public ObjectId get_id() {
+		return _id;
 	}
 
 	public void set_id(ObjectId _id) {
