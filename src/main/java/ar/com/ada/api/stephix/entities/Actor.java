@@ -3,7 +3,7 @@ package ar.com.ada.api.stephix.entities;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="Elenco")
+@Document(collection="Actores")
 public class Actor {
 
     public ObjectId _id;
