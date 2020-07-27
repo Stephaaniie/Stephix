@@ -7,7 +7,6 @@ import org.bson.types.ObjectId;
 
 public class Contenido {
 
-    //Id del documento dentro de la coleccion
     private ObjectId _id;
     
     private String nombre;

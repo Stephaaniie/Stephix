@@ -9,5 +9,4 @@ public class StephixApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(StephixApplication.class, args);
 	}
-
 }
