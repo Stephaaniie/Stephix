@@ -10,12 +10,14 @@ import org.springframework.stereotype.Service;
 import ar.com.ada.api.stephix.entities.Usuario;
 import ar.com.ada.api.stephix.security.Crypto;
 
+//import kong.unirest.HttpResponse;
+//import kong.unirest.JsonNode;
 import kong.unirest.Unirest;
 import kong.unirest.UnirestException;
 
 @Service
 public class EmailService {
-
+    /*
     enum TipoEnvio {
         SMTP, API
     }
@@ -44,20 +46,14 @@ public class EmailService {
     @Value("${emailSettings.enabled}")
     public boolean enabled;
 
+     public void SendEmail(String email, String subject, String message) throws UnirestException {
 
-    public void SendEmail(String email, String subject, String message) throws UnirestException {
         if (!this.enabled)
             return;
 
         JsonNode r;
 
-        HttpResponse<JsonNode> request = UnirestException.post("https://api.mailgun.net/v3/" + this.domain + "/messages")
-            .basicAuth("api", this.apiKey)
-            .field("from", this.from)
-            .field("to", email)
-            .field("subject", subject)
-            .field("text", message).asJson();
-
+        HttpResponse<JsonNode> request = Unirest.post("https://api.mailgun.net/v3/" + this.domain + "/messages").basicAuth("api", this.apiKey).field("from", this.from).field("to", email).field("subject", subject).field("text", message).asJson();
         r = request.getBody();
     }
 
@@ -76,6 +72,6 @@ public class EmailService {
             default:
                 break;
         }
-    }
+    }*/
 }
 
