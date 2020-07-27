@@ -35,7 +35,7 @@ public class JWTTokenUtil implements Serializable {
         return claimsResolver.apply(claims);
     }
 
-    private Claims getAllClaimsFromToken(String token) {
+    public Claims getAllClaimsFromToken(String token) {
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
 
     }
@@ -63,5 +63,9 @@ public class JWTTokenUtil implements Serializable {
         
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
+
+	public String generateToken(UserDetails userDetails, Map<String, Object> claims) {
+        return doGenerateToken(claims, userDetails.getUsername());
+	}
 
 }

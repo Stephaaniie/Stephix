@@ -1,5 +1,7 @@
 package ar.com.ada.api.stephix.controllers;
 
+import java.util.Map;
+
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -40,17 +42,17 @@ public class UsuarioController {
 
     @PostMapping("/login") 
     public ResponseEntity<?> createAuthenticationToken(@RequestBody LoginRequest authenticationRequest) throws Exception {
-        usuarioService.login(authenticationRequest.username, authenticationRequest.password);
+        Usuario usuarioLogueado = usuarioService.login(authenticationRequest.username, authenticationRequest.password);
 
-        UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.username);
+        UserDetails userDetails = usuarioService.getUserAsUserDetail(usuarioLogueado);
+        
+        Map<String,Object> claims = usuarioService.getUserClaims(usuarioLogueado);
 
-        String token = jwtTokenUtil.generateToken(userDetails);
+        String token = jwtTokenUtil.generateToken(userDetails, claims);
 
         Usuario u = usuarioService.findByName(authenticationRequest.username); 
-        
-        LoginResponse r = usuarioService.loginResponse(u,token,authenticationRequest.username);
-       
-        return ResponseEntity.ok(r); 
+               
+        return ResponseEntity.ok(usuarioService.loginResponse(u,token,authenticationRequest.username)); 
     }
 
     @DeleteMapping("/deleter/{id}")
