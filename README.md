@@ -10,11 +10,13 @@ WEB API. Proyecto en Spring web con la utilización de Spring data MongoDB (no s
     ```
 
 ### Instalación 🔧
-    ```
-        Como el proyecto corre con Maven simplemnte debera ejecutar
+    
+        Como el proyecto corre con Maven simplemnte debera ejecutar:
         - mvn clean (limpiar el target).
         - mvn verify (Verifica que todas las dependencias esten instaladas correctamente).
         - mvn compile (Compila el proyecto).
-    ```
+    
 
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/687cd503413e43798e6e900a90dd561e)](https://www.codacy.com/manual/Stephaaniie/Stephix?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Stephaaniie/Stephix&amp;utm_campaign=Badge_Grade)
 
