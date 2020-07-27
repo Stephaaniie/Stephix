@@ -41,12 +41,9 @@ public class Temporada {
     }
  
     public Episodio getEpisodio(int nro) {
-        for (Episodio ep : this.episodios) {
-            if (ep.getNumero() == nro) {
-                return ep;
-            }
-        }
-        return null;
+        Optional<Episodio> episodio = this.getEpisodios().stream().filter(x -> x.getNumero() == nro).findFirst();
+       
+        return episodio.isPresent() ? episodio.get() : null;
     }
  
     public Episodio getEpisodioAtPosicion (int pos) {

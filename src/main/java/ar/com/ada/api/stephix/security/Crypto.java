@@ -57,7 +57,7 @@ public class Crypto {
     public static String hash(String strToHash, String salt) {
         try {
 
-            int iterations = 1000; //A mas iteraciones mas lento
+            int iterations = 1000; 
             char[] chars = strToHash.toCharArray();
             byte[] saltBytes = strToHash.getBytes("UTF-8");
 
@@ -65,8 +65,6 @@ public class Crypto {
             SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
             byte[] hash = skf.generateSecret(spec).getEncoded();
             return Base64.getEncoder().encodeToString(hash);
-            //return toHex(hash);
-            //return iterations + ":" + toHex(saltBytes) + ":" + toHex(hash);
         } catch (Exception e) {
             System.out.println("Error while hashing: " + e.toString());
         }

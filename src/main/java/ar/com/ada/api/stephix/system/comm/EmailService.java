@@ -47,10 +47,8 @@ public class EmailService {
         if (!this.enabled)
             return;
 
-        JsonNode r;
-
         HttpResponse<JsonNode> request = Unirest.post("https://api.mailgun.net/v3/" + this.domain + "/messages").basicAuth("api", this.apiKey).field("from", this.from).field("to", email).field("subject", subject).field("text", message).asJson();
-        r = request.getBody();
+        request.getBody();
     }
 
     public void alertaPorRecibirPor(Usuario usuario,String envio){

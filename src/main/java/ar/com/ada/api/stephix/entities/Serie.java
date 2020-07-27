@@ -28,12 +28,8 @@ public class Serie extends Contenido {
     }
  
     public Temporada buscarTemporada(int nro) {
-        for (Temporada tempo : this.temporadas) {
-            if (tempo.getNumero() == nro) {
-                return tempo;
-            }
-
-        }
-        return null;
+        Optional<Temporada> temporada = this.getTemporadas().stream().filter(x -> x.getNumero() == nro).findFirst();
+       
+        return temporada.isPresent() ? temporada.get() : null;
     }
 }
