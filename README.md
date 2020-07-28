@@ -8,7 +8,7 @@ Para la solicitud de los WebMetodos
 ### MAILGUN :mailbox: :love_letter:
 Para poder notificar con mails el login del usuario o los intentos fallidos.
 
-### Heroku :computer:
+### HEROKU :computer:
 Con Mongo DB
 <a href="https://stephix.herokuapp.com/" target="_blank"> API Stephix <a>
  
@@ -21,8 +21,8 @@ Con Mongo DB
     ```
 
 ### Instalación 🔧
-    
-        Como el proyecto corre con Maven simplemnte debera ejecutar:
+     El proyecto tiene integrada la carpeta de .mnv por lo cual se instalara automaticamente Maven.
+     Para la ejecucion del proyecto debera ejecutar:
         - mvn clean (limpiar el target).
         - mvn verify (Verifica que todas las dependencias esten instaladas correctamente).
         - mvn compile (Compila el proyecto).
