@@ -9,10 +9,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import ar.com.ada.api.stephix.entities.Usuario;
-import ar.com.ada.api.stephix.models.*;
 import ar.com.ada.api.stephix.models.request.LoginRequest;
 import ar.com.ada.api.stephix.security.jwt.JWTTokenUtil;
-import ar.com.ada.api.stephix.services.*;
 import ar.com.ada.api.stephix.services.implementations.CuentaUserService;
 import ar.com.ada.api.stephix.services.implementations.UsuarioServer;
 
@@ -30,9 +28,6 @@ public class UsuarioController {
 
     @Autowired
     private JWTTokenUtil jwtTokenUtil;
-
-    @Autowired
-    private JWTUserDetailsService userDetailsService;
 
     @PostMapping("/register")
     public ResponseEntity<Usuario> postRegisterUser(@RequestBody Usuario usuario) {
