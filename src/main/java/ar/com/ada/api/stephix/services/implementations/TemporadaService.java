@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ar.com.ada.api.stephix.entities.Episodio;
+import ar.com.ada.api.stephix.entities.Serie;
 import ar.com.ada.api.stephix.entities.Temporada;
 import ar.com.ada.api.stephix.exceptions.ResourceNotFoundException;
 import ar.com.ada.api.stephix.repos.EpisodioRepository;
@@ -59,7 +60,7 @@ public class TemporadaService implements ITemporadaService {
 		return temporadaRepository.count();
 	}
 
-	public List<Episodio> findByEpisodios() {
+	public List<Episodio> findByEpisodios(Serie serie) {
 		return temporadaRepository.findByEpisodios();
 	}
 
@@ -67,5 +68,9 @@ public class TemporadaService implements ITemporadaService {
 		Temporada temporada = this.findById(objectId);
 		temporada.setEpisodio(episodio);
 		return eRepository.save(episodio);
+	}
+
+	public Episodio findByEpisodio(Temporada temporada, String id1) {
+		return eRepository.findByNombre(id1);
 	}
 }

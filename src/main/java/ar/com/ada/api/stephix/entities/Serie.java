@@ -32,4 +32,12 @@ public class Serie extends Contenido {
        
         return temporada.isPresent() ? temporada.get() : null;
     }
+
+	public Temporada findByTemporada(int id) {
+		return this.buscarTemporada(id);
+	}
+
+	public void setTemporada(Temporada temporada) {
+        this.temporadas.add(temporada);
+	}
 }

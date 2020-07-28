@@ -6,6 +6,7 @@ import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 import ar.com.ada.api.stephix.entities.Serie;
+import ar.com.ada.api.stephix.entities.Temporada;
 import ar.com.ada.api.stephix.exceptions.ResourceNotFoundException;
 import ar.com.ada.api.stephix.repos.SerieRepository;
 import ar.com.ada.api.stephix.services.ISerieService;
@@ -52,4 +53,19 @@ public class SerieService implements ISerieService{
     public Long count() {
         return serieRepository.count();
     }
+
+	public void addTemporadaASerie(Serie serie, Temporada temporada) {
+		serie.setTemporada(temporada);
+		serieRepository.save(serie);
+	}
+
+	public List<Temporada> fidAllTemporadas() {
+		return serieRepository.findAllTemporadas();
+	}
+
+	public Temporada findByTemporada(Serie serie, int id) {
+		List<Temporada> temporada = serieRepository.findAllTemporadas(serie);
+		return temporada.get(id);
+	}
+
 }
