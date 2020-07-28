@@ -2,13 +2,13 @@
 WEB API. Proyecto en Spring web con la utilización de Spring data MongoDB (no sql). Te permite hacer solicitudes de series,películas, o temporadas.
 Además se utilizo:
 
-### POSTMAN :squirrel:
+### POSTMAN :shipit:
 para la solicitud de los WebMetodos
 
 ### MAILGUN :mailbox: :love_letter:
  para poder notificar con mails el login del usuario o los intentos fallidos.
 
-### Heroku 
+### Heroku :computer:
 Con Mongo DB
 <a href="https://stephix.herokuapp.com/" target="_blank">API scbilleteravirtual<a>
  
