@@ -22,8 +22,4 @@ public interface SerieRepository extends MongoRepository<Serie,ObjectId>{
     List<Serie> findByGenero(String genero);
 
     List<Serie> findByAnio(int anio);
-
-	List<Temporada> findAllTemporadas();
-
-	List<Temporada> findAllTemporadas(Serie serie);
 }

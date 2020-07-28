@@ -5,12 +5,9 @@ import java.util.List;
 import java.util.Scanner;
 
 import org.bson.types.ObjectId;
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpStatus.Series;
 
 import ar.com.ada.api.stephix.entities.*;
-import ar.com.ada.api.stephix.services.implementations.UsuarioServer;
 
 @SpringBootTest
 class StephixApplicationTests {

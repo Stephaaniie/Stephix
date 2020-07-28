@@ -14,7 +14,8 @@ import ar.com.ada.api.stephix.services.ISerieService;
 @Service
 public class SerieService implements ISerieService{
 
-    private final SerieRepository serieRepository;
+	private final SerieRepository serieRepository;
+
 
     public SerieService(SerieRepository serieRepository) {
         this.serieRepository = serieRepository;
@@ -58,14 +59,4 @@ public class SerieService implements ISerieService{
 		serie.setTemporada(temporada);
 		serieRepository.save(serie);
 	}
-
-	public List<Temporada> fidAllTemporadas() {
-		return serieRepository.findAllTemporadas();
-	}
-
-	public Temporada findByTemporada(Serie serie, int id) {
-		List<Temporada> temporada = serieRepository.findAllTemporadas(serie);
-		return temporada.get(id);
-	}
-
 }

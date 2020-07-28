@@ -51,12 +51,12 @@ public class SerieController {
 
     @GetMapping("/temporadas")
     public List<Temporada>findAllTemporada() {
-        return serieService.fidAllTemporadas();
+        return temporadaService.findAll();
     }
 
     @GetMapping("{id}/temporadas/{id1}")
     public Temporada findById(@PathVariable("id") String id, int id1) {
-        return temporadaService.findById(serieService.findByTemporada(this.findById(id),id1).get_id());
+        return temporadaService.findById(temporadaService.findById(new ObjectId(id)).get_id());
     }
 
     @PostMapping("{id}/temporadas")
@@ -67,13 +67,13 @@ public class SerieController {
 
     @PutMapping("/{id}/temporadas/{id2}")
     public Temporada update(@PathVariable("id") String id, @RequestBody Temporada temporada,int id2) {
-        temporada.set_id(serieService.findByTemporada(this.findById(id),id2).get_id());
+        temporada.set_id(temporadaService.findById(new ObjectId(id)).get_id());
         return temporadaService.save(temporada);
     }
 
     @DeleteMapping("{id}/temporadas/{id2}")
     public String delete(@PathVariable("id") String id, int id2) {
-        temporadaService.deleteById(serieService.findByTemporada(this.findById(id),id2).get_id());
+        temporadaService.deleteById(temporadaService.findById(new ObjectId(id)).get_id());
         return "OK";
     }
 
@@ -83,8 +83,8 @@ public class SerieController {
     }
     
     @GetMapping("{id0}/temporadas/{id}/episodios/{id1}")
-    public Episodio fidbByEpisodio(@PathVariable("id0") String id0,int id, String id1){
-		return temporadaService.findByEpisodio(serieService.findByTemporada(serieService.findById(new ObjectId(id0)), id),id1);
+    public Episodio fidbByEpisodio(@PathVariable("id0") String id0,String id, String id1){
+		return temporadaService.findByEpisodio(temporadaService.findById(new ObjectId(id)),id1);
     }
 
     @PostMapping("temporadas/{id}/episodios")
