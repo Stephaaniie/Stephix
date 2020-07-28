@@ -3,13 +3,13 @@ WEB API. Proyecto en Spring web con la utilización de Spring data MongoDB (no s
 Además se utilizo:
 
 ### POSTMAN :shipit:
-para la solicitud de los WebMetodos
+Para la solicitud de los WebMetodos
 
 ### MAILGUN :mailbox: :love_letter:
- para poder notificar con mails el login del usuario o los intentos fallidos.
+ Para poder notificar con mails el login del usuario o los intentos fallidos.
 
 ### Heroku :computer:
-Con Mongo DB
+Con MongoDB para guardar documentos.
 <a href="https://stephix.herokuapp.com/" target="_blank">API scbilleteravirtual<a>
  
 ### Pre-requisitos 📋
