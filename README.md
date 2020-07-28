@@ -8,7 +8,7 @@ Para la solicitud de los WebMetodos
 ### MAILGUN :mailbox: :love_letter:
 Para poder notificar con mails el login del usuario o los intentos fallidos.
 
-### Heroku :computer:
+### HEROKU :computer:
 Con Mongo DB
 <a href="https://stephix.herokuapp.com/" target="_blank"> API Stephix <a>
  
@@ -21,8 +21,8 @@ Con Mongo DB
     ```
 
 ### Instalación 🔧
-    
-        Como el proyecto corre con Maven simplemnte debera ejecutar:
+     El proyecto tiene integrada la carpeta de .mnv por lo cual se instalara automaticamente Maven.
+     Para la ejecucion del proyecto debera ejecutar:
         - mvn clean (limpiar el target).
         - mvn verify (Verifica que todas las dependencias esten instaladas correctamente).
         - mvn compile (Compila el proyecto).
@@ -31,4 +31,7 @@ Con Mongo DB
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/687cd503413e43798e6e900a90dd561e)](https://www.codacy.com/manual/Stephaaniie/Stephix?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Stephaaniie/Stephix&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/1c524e61cd8640e79b80d406eda8754b)](https://www.codacy.com/manual/Stephaaniie/Stephix?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Stephaaniie/Stephix&amp;utm_campaign=Badge_Coverage)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.codacy/codacy-coverage-reporter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.codacy/codacy-coverage-reporter)
+<<<<<<< HEAD
 [![Build Status](https://travis-ci.org/Stephaaniie/Stephix.svg?branch=master)](https://travis-ci.org/Stephaaniie/Stephix)
+=======
+>>>>>>> a71f20e3a6bd125de6db166d7142465c225142dc
