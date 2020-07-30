@@ -17,10 +17,6 @@ public class CuentaUser {
 		return _id;
 	}
 
-	public void set_id(ObjectId _id) {
-		this._id = _id;
-	}
-
 	public List<ObjectId> getUsuarios() {
 		return usuarios;
 	}
