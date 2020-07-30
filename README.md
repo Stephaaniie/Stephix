@@ -1,4 +1,4 @@
-# Stephix
+# Stephix :movie_camera: :tv: :octocat:
 WEB API. Proyecto en Spring web con la utilización de Spring data MongoDB (no sql). Te permite hacer solicitudes de series,películas, o temporadas.
 Además se utilizo:
 

@@ -46,8 +46,7 @@ public class UsuarioServer implements IUsuarioService{
 
 	@Override
 	public Usuario findById(ObjectId id) throws ResourceNotFoundException {
-		return usuarioRepository.findById(id).orElseThrow(
-            () -> new ResourceNotFoundException("model with id " + id + " not found"));
+		return usuarioRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("model with id " + id + " not found"));
 	}
 
 	@Override
