@@ -13,10 +13,10 @@ import ar.com.ada.api.stephix.exceptions.ResourceNotFoundException;
 import ar.com.ada.api.stephix.models.LoginResponse;
 import ar.com.ada.api.stephix.repos.UsuarioRepository;
 import ar.com.ada.api.stephix.security.Crypto;
-import ar.com.ada.api.stephix.services.IUsuarioServer;
+import ar.com.ada.api.stephix.services.IUsuarioService;
 
 @Service
-public class UsuarioServer implements IUsuarioServer{
+public class UsuarioServer implements IUsuarioService{
 
 	private final UsuarioRepository usuarioRepository;
 

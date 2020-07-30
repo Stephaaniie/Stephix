@@ -3,7 +3,7 @@ package ar.com.ada.api.stephix.services;
 import ar.com.ada.api.stephix.entities.Usuario;
 import ar.com.ada.api.stephix.models.LoginResponse;
 
-public interface IUsuarioServer extends IEntityCRUDService<Usuario> {
+public interface IUsuarioService extends IEntityCRUDService<Usuario> {
 
 	Usuario login(String username, String password);
 
