@@ -37,6 +37,7 @@ public class UsuarioController {
 
     @PostMapping("/login") 
     public ResponseEntity<?> createAuthenticationToken(@RequestBody LoginRequest authenticationRequest) throws Exception {
+        
         Usuario usuarioLogueado = usuarioService.login(authenticationRequest.username, authenticationRequest.password);
 
         UserDetails userDetails = usuarioService.getUserAsUserDetail(usuarioLogueado);

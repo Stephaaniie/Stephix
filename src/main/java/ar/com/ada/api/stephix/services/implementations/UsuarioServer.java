@@ -1,10 +1,17 @@
 package ar.com.ada.api.stephix.services.implementations;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.bson.types.ObjectId;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -85,11 +92,25 @@ public class UsuarioServer implements IUsuarioService{
 	}
 
 	public UserDetails getUserAsUserDetail(Usuario usuarioLogueado) {
-		return null;
+		return new User(usuarioLogueado.getUsername(),usuarioLogueado.getPassword(),getAuthorities(usuarioLogueado));
+	}
+
+	private Set<? extends GrantedAuthority> getAuthorities(Usuario usuarioLogueado) {
+		Set<SimpleGrantedAuthority> authorities = new HashSet<>();
+
+		ObjectId usuarId = usuarioLogueado.get_id();
+
+		authorities.add(new SimpleGrantedAuthority("CLAIM_USUARIO_ID"+usuarId));
+
+		return authorities;
 	}
 
 	public Map<String, Object> getUserClaims(Usuario usuarioLogueado) {
-		return null;
+		Map<String, Object> claims = new HashMap<>();
+
+		claims.put("billeteraId", usuarioLogueado.getUsername());
+
+		return claims;
 	}
     
 }
