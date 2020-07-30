@@ -3,7 +3,11 @@ WEB API. Proyecto en Spring web con la utilización de Spring data MongoDB (no s
 Además se utilizo:
 
 ### POSTMAN :shipit:
-Para la solicitud de los WebMetodos
+A continuacion del mismo se adjuntara el acceso a los request de Postman.
+
+<a href="https://documenter.getpostman.com/view/12223320/T1Dtfbfo
+" target="_blank">ACCESO REQUEST POSTMAN<a>
+
 
 ### MAILGUN :mailbox: :love_letter:
 Para poder notificar con mails el login del usuario o los intentos fallidos.
