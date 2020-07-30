@@ -1,6 +1,5 @@
 package ar.com.ada.api.stephix.services.implementations;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -8,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -21,11 +21,19 @@ import ar.com.ada.api.stephix.models.LoginResponse;
 import ar.com.ada.api.stephix.repos.UsuarioRepository;
 import ar.com.ada.api.stephix.security.Crypto;
 import ar.com.ada.api.stephix.services.IUsuarioService;
+import ar.com.ada.api.stephix.system.comm.EmailService;
 
 @Service
 public class UsuarioServer implements IUsuarioService{
 
+	private static final String LOGIARSE = "iniciarSesion";
+    
+	private static final String LOGIARSE_ERROR = "sesionInvalida";
+	
 	private final UsuarioRepository usuarioRepository;
+
+	@Autowired
+	EmailService emailService;
 
     public UsuarioServer(UsuarioRepository uRepository) {
         this.usuarioRepository = uRepository;
@@ -75,10 +83,10 @@ public class UsuarioServer implements IUsuarioService{
 		Usuario u = this.findByName(username);
 		u.cargarUsuario(username, password);
     	if (u == null || !u.getPassword().equals(Crypto.encrypt(password, u.getUsername()))) {
-    		//emailService.alertaPorRecibirPor(u,LOGIARSE_ERROR);
+    		emailService.alertaPorRecibirPor(u,LOGIARSE_ERROR);
 			throw new BadCredentialsException("Usuario o contraseña invalida");
     	}
-		//emailService.alertaPorRecibirPor(u,LOGIARSE);
+		emailService.alertaPorRecibirPor(u,LOGIARSE);
 		return u;
 	}
 
