@@ -2,6 +2,13 @@
 WEB API. Proyecto en Spring web con la utilización de Spring data MongoDB (no sql). Te permite hacer solicitudes de series,películas, o temporadas.
 Además se utilizo:
 
+### MONGODB :bookmark_tabs:
+Imagen de como se ve la base de datos manejado por collections.
+
+<div style="width: 100%">
+ <img width="49.15%" src="https://github.com/Stephaaniie/Stephix/blob/master/src/main/resources/img/MongoStephix.png"/>
+</div>
+
 ### POSTMAN :shipit:
 A continuacion del mismo se adjuntara el acceso a los request de Postman.
 
